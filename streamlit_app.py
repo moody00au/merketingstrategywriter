@@ -58,12 +58,12 @@ def generate_marketing_plan(data):
     Additional info: {data['additional_info']}.
     """
 
-    response = openai.Completion.create(
-    model = "gpt-4-vision-preview",  # Update model name to GPT-4
-        prompt=prompt,
-        max_tokens=1000
+    response = openai.ChatCompletion.create(
+        model="gpt-4-vision-preview",  # Ensure this is the correct model name
+        messages=[{"role": "system", "content": prompt}]
     )
-    return response.choices[0].text
+    return response.choices[0].message['content']
+
 
 
 if generate_button:
