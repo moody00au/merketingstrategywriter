@@ -58,12 +58,13 @@ def generate_marketing_plan(data):
     Additional info: {data['additional_info']}.
     """
 
-    response = openai.migrate.create(
-        model="gpt4",
+    response = openai.Completion.create(
+        model="gpt-4",  # Correct model name
         prompt=prompt,
         max_tokens=1000
     )
     return response.choices[0].text
+
 
 if generate_button:
     data = {
