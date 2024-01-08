@@ -59,7 +59,7 @@ def generate_marketing_plan(data):
     """
 
     response = openai.Completion.create(
-    model = "gpt-3.5-turbo",  # Update model name to GPT-4
+    model = "gpt-4-vision-preview",  # Update model name to GPT-4
         prompt=prompt,
         max_tokens=1000
     )
