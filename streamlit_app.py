@@ -58,7 +58,7 @@ def generate_marketing_plan(data):
     Additional info: {data['additional_info']}.
     """
 
-    response = openai.Completion.create(
+    response = openai.migrate.create(
         model="gpt4",
         prompt=prompt,
         max_tokens=1000
