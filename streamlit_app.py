@@ -58,7 +58,7 @@ def generate_marketing_plan(data):
     Additional info: {data['additional_info']}.
     """
 
-    response = chat.completions.create(
+    response = client.chat.completions.create(
         model="gpt-3.5-turbo",  # Ensure this is the correct model name
         messages=[{"role": "system", "content": prompt}]
     )
