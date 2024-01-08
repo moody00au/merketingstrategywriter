@@ -59,7 +59,7 @@ def generate_marketing_plan(data):
     """
 
     response = openai.Completion.create(
-        model="text-davinci-004",
+        model="gpt4",
         prompt=prompt,
         max_tokens=1000
     )
