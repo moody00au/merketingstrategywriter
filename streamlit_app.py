@@ -59,7 +59,7 @@ def generate_marketing_plan(data):
     """
 
     response = openai.ChatCompletion.create(
-        model="gpt-4-vision-preview",  # Ensure this is the correct model name
+        model="gpt-4",  # Ensure this is the correct model name
         messages=[{"role": "system", "content": prompt}]
     )
     return response.choices[0].message['content']
