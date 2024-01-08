@@ -58,7 +58,7 @@ def generate_marketing_plan(data):
     Additional info: {data['additional_info']}.
     """
 
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-4",  # Ensure this is the correct model name
         messages=[{"role": "system", "content": prompt}]
     )
