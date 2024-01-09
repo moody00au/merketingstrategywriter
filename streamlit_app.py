@@ -3,7 +3,7 @@ import openai
 from openai import OpenAI
 
 # Load secrets from the `.streamlit/secrets.toml` file
-openai.api_key = st.secrets["openai_api_key"]"
+openai.api_key = st.secrets["openai_api_key"]
 
 st.title("Social Media Marketing Strategy Generator")
 
