@@ -62,7 +62,11 @@ def generate_marketing_plan(data):
         messages=[{"role": "system", "content": prompt}]
     )
 
-    return response.choices[0].message['content']
+    # Extracting the text from the response
+    if response.choices and response.choices[0].message:
+        return response.choices[0].message.text
+    else:
+        return "No response generated."
 
 if generate_button:
     data = {
