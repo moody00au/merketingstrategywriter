@@ -58,8 +58,8 @@ def generate_marketing_plan(data):
     Additional info: {data['additional_info']}.
     """
 
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",  # Ensure this is the correct model name
+    openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",  # Ensure this is the correct model name
         messages=[{"role": "system", "content": prompt}]
     )
     return response.choices[0].message['content']
