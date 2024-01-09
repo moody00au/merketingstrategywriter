@@ -57,12 +57,13 @@ def generate_marketing_plan(data):
     Feedback loop willingness: {data['feedback_loop']}.
     Additional info: {data['additional_info']}.
     """
-    response = openai.ChatCompletion.create(
+    response = openai.Completion.create(
         model="gpt-4",  # Ensure this is the correct model name
-        messages=[{"role": "system", "content": prompt}]
+        prompt=prompt,
+        max_tokens=1000  # Adjust as needed
     )
 
-    # Correctly extracting the text from the response
+    # Extracting the text from the response
     if response.choices:
         return response.choices[0].text
     else:
