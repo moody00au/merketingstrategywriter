@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 
 # Load secrets from the `.streamlit/secrets.toml` file
-openai.api_key = st.secrets["openai_api_key"]
+openai.api_key = st.secrets["openai_key"]
 
 st.title("Social Media Marketing Strategy Generator")
 
