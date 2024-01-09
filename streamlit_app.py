@@ -57,12 +57,14 @@ def generate_marketing_plan(data):
     Feedback loop willingness: {data['feedback_loop']}.
     Additional info: {data['additional_info']}."""
     try:
-        response = openai.Completion.create(
-            engine="gpt-4",  # Ensure this is the correct model name
-            prompt=prompt,
-            max_tokens=1000  # Adjust as needed
+        response = openai.ChatCompletion.create(
+            model="gpt-4",  # Ensure this is the correct model name
+            messages=[{"role": "system", "content": prompt}]
         )
-        return response.choices[0].text
+        if response.choices:
+            return response.choices[0].message['content']
+        else:
+            return "No response generated."
     except openai.error.InvalidRequestError as e:
         return f"An error occurred: {str(e)}"
 
