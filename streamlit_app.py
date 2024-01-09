@@ -56,18 +56,15 @@ def generate_marketing_plan(data):
     Seasonal/cultural considerations: {data['seasonal_cultural_info']}.
     Feedback loop willingness: {data['feedback_loop']}.
     Additional info: {data['additional_info']}.
-    """
-    response = openai.Completion.create(
-        model="gpt-4",  # Ensure this is the correct model name
-        prompt=prompt,
-        max_tokens=1000  # Adjust as needed
-    )
-
-    # Extracting the text from the response
-    if response.choices:
+    try:
+        response = openai.Completion.create(
+            engine="gpt-4",  # Ensure this is the correct model name
+            prompt=prompt,
+            max_tokens=1000  # Adjust as needed
+        )
         return response.choices[0].text
-    else:
-        return "No response generated."
+    except openai.error.InvalidRequestError as e:
+        return f"An error occurred: {str(e)}"
 
 if generate_button:
     data = {
