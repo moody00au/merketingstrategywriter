@@ -1,6 +1,5 @@
 import streamlit as st
 import openai
-from openai import OpenAI
 
 # Load secrets from the `.streamlit/secrets.toml` file
 openai.api_key = st.secrets["openai_api_key"]
@@ -58,8 +57,12 @@ def generate_marketing_plan(data):
     Feedback loop willingness: {data['feedback_loop']}.
     Additional info: {data['additional_info']}.
     """
-    client = OpenAI()
-    response = client.chat.completions.create (   
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",  # Ensure this is the correct model name
+        messages=[{"role": "system", "content": prompt}]
+    )
+    return response.choices[0].message['content']
+ (   
     model="gpt-3.5-turbo",  # Ensure this is the correct model name
     messages=[{"role": "system", "content": prompt}]
     )
