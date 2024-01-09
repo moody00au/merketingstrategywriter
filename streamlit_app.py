@@ -55,7 +55,7 @@ def generate_marketing_plan(data):
     Platform strategies: {data['platform_strategies']}.
     Seasonal/cultural considerations: {data['seasonal_cultural_info']}.
     Feedback loop willingness: {data['feedback_loop']}.
-    Additional info: {data['additional_info']}.
+    Additional info: {data['additional_info']}."""
     try:
         response = openai.Completion.create(
             engine="gpt-4",  # Ensure this is the correct model name
