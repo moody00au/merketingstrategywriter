@@ -1,5 +1,6 @@
 import streamlit as st
 import openai
+import time
 
 # Load secrets from the `.streamlit/secrets.toml` file
 openai.api_key = st.secrets["openai_key"]
