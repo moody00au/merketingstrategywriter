@@ -92,4 +92,3 @@ if generate_button:
         "feedback_loop": feedback_loop
     }
     plan = generate_marketing_plan(data)
-    st.text_area("Your Marketing Plan", plan, height=400)
