@@ -62,11 +62,17 @@ def generate_marketing_plan(data):
             messages=[{"role": "system", "content": prompt}]
         )
         if response.choices:
-            return response.choices[0].message['content']
+            plan_placeholder = st.empty()
+            full_text = response.choices[0].message['content']
+            for i in range(1, len(full_text)):
+                plan_placeholder.text_area("Your Marketing Plan", full_text[:i], height=400)
+                time.sleep(0.05)  # Adjust the speed of text appearance
+            return full_text
         else:
             return "No response generated."
     except openai.error.InvalidRequestError as e:
         return f"An error occurred: {str(e)}"
+
 
 if generate_button:
     data = {
